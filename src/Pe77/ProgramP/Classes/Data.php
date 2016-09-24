@@ -44,7 +44,7 @@ class Data
 		switch ($this->_saveType) 
 		{
 			case Data::$SAVETYPE_COOKIE:
-				$this->_data = isset($_COOKIE['ppdata']) ? unserialize($_COOKIE['ppdata']) : array();
+				$this->_data = isset($_COOKIE['ppdata']) ? unserialize(base64_decode($_COOKIE['ppdata'])) : array();
 			break;
 			
 			case Data::$SAVETYPE_SESSION:
@@ -73,7 +73,7 @@ class Data
 		switch ($this->_saveType) 
 		{
 			case Data::$SAVETYPE_COOKIE:
-				setcookie('ppdata', serialize($data));
+				setcookie('ppdata', base64_encode(serialize($data)));
 			break;
 			
 			case Data::$SAVETYPE_SESSION:
@@ -139,7 +139,7 @@ class Data
 	 */
 	private function SaveDB($data)
 	{
-		$serializeData = serialize($data);
+		$serializeData = base64_encode(serialize($data));
 		$unique = $this->GetUniqueDB();
 		
 		Connect::Query("
@@ -165,7 +165,7 @@ class Data
 		
 		if($data = Connect::GetOne("SELECT * FROM `data` WHERE `unique` = '$unique'"))
 		{
-			return unserialize($data['data']);
+			return unserialize(base64_decode($data['data']));
 		}else{
 			return array();
 		}

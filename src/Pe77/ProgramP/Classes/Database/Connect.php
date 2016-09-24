@@ -3,7 +3,7 @@
 namespace Pe77\ProgramP\Classes\Database;
 
 /**
- * Classe de conex„o com o DB Mysql
+ * Classe de conex√£o com o DB Mysql
  * @author pe77
  *
  */
@@ -23,7 +23,7 @@ class Connect
 	private static $user = '';
 	
 	/**
-	 * senha do banco para o usu·rio $user
+	 * senha do banco para o usu√°rio $user
 	 * @var string
 	 */
 	private static $pass = '';
@@ -35,14 +35,14 @@ class Connect
 	private static $dbName = '';
 	
 	/**
-	 * Verifica se conex„o com o banco est· aberta
+	 * Verifica se conex√£o com o banco est√° aberta
 	 * @var bool
 	 */
 	private static $isConnected = false;
 	
 	
 	/**
-	 * Identificador da ultima conex„o aberta
+	 * Identificador da ultima conex√£o aberta
 	 * @var int|bool
 	 */
 	protected static $connIdent;
@@ -51,12 +51,12 @@ class Connect
 	
 	
 	/**
-	 * Inicia classe com as configuraÁıes iniciais do banco
+	 * Inicia classe com as configura√ß√µes iniciais do banco
 	 * @param array $config
 	 */
 	public static function init($config)
 	{
-		// "carrega" configuraÁ„o
+		// "carrega" configura√ß√£o
 		self::$host = $config['host'];
 		self::$user = $config['user'];
 		self::$pass = $config['pass'];
@@ -66,19 +66,19 @@ class Connect
 	
 	
 	/**
-	 * Abre Conex„o com o Banco
+	 * Abre Conex√£o com o Banco
 	 */
 	private static function OpenConnect()
 	{
 		if (self::$dbName == '' || self::$host == '' || self::$user == '') 
-			trigger_error("Classe [Connect] n„o iniciada [init]. Beijo do Gordo, WOW!");
+			trigger_error("Classe [Connect] n√£o iniciada [init]. Beijo do Gordo, WOW!");
 		//
 		
-        // tenta abrir uma conex„o
-        self::$connIdent = mysql_connect(self::$host, self::$user, self::$pass) or die('Erro ao conectar com a base de dados. Por que? - VocÍ deve estar se perguntando : ' . mysql_error());
-		mysql_select_db(self::$dbName, self::$connIdent) or die('Base de dados n„o encontrada. Luke i am your father : ' . mysql_error());
+        // tenta abrir uma conex√£o
+        self::$connIdent = mysql_connect(self::$host, self::$user, self::$pass) or die('Erro ao conectar com a base de dados. Por que? - Voc√™ deve estar se perguntando : ' . mysql_error());
+		mysql_select_db(self::$dbName, self::$connIdent) or die('Base de dados n√£o encontrada. Luke i am your father : ' . mysql_error());
         
-		// seta a conex„o para aberta
+		// seta a conex√£o para aberta
 		self::$isConnected = true;
 	}
 	
@@ -91,7 +91,7 @@ class Connect
 				' . $database . ';
 			';
 		
-		mysql_query($sql, self::$connIdent) or die('Query inv·lida: ' . mysql_errno() . "\nEssequeÈli:\n" . $sql);
+		mysql_query($sql, self::$connIdent) or die('Query inv√°lida: ' . mysql_errno() . "\nEsseque√©li:\n" . $sql);
 	}
 	
 	/**
@@ -105,7 +105,7 @@ class Connect
 		
 		$sql = 'SELECT COUNT(*) AS `exists` FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMATA.SCHEMA_NAME="' . $database . '"';
 		
-		$result = mysql_query($sql, self::$connIdent) or die('Query inv·lida: ' . mysql_errno() . "\nEssequeÈli:\n" . $sql);
+		$result = mysql_query($sql, self::$connIdent) or die('Query inv√°lida: ' . mysql_errno() . "\nEsseque√©li:\n" . $sql);
 		
 		$data = mysql_fetch_assoc($result);
 		return $data['exists'] == '1';
@@ -119,17 +119,17 @@ class Connect
 	 */
 	public static function Query($sql)
 	{
-		// verifica se a conex„o j· esta aberta, se n„o tiver abre
+		// verifica se a conex√£o j√° esta aberta, se n√£o tiver abre
 		if(!self::$isConnected)
 			self::OpenConnect();
 		//
 		
-		$result = mysql_query($sql, self::$connIdent) or die('Query inv·lida: ' . mysql_error() . "\nEssequeÈli:\n" . $sql);
+		$result = mysql_query($sql, self::$connIdent) or die('Query inv√°lida: ' . mysql_error() . "\nEsseque√©li:\n" . $sql);
 		return $result;
 	}
 	
 	/**
-	 * Semelhante a FunÁ„o 'Query', sÛ que j· retorna o resultado em um array
+	 * Semelhante a Fun√ß√£o 'Query', s√≥ que j√° retorna o resultado em um array
 	 * @param string $sql
 	 * @return array com os resultados da procura
 	 */
@@ -146,7 +146,7 @@ class Connect
 	}
 	
 	/**
-	 * Fecha a conex„o com o banco
+	 * Fecha a conex√£o com o banco
 	 */
 	public static function Close() 
 	{
@@ -154,7 +154,7 @@ class Connect
 	}
 	
 	/**
-	 * Abre uma transaÁ„o com o banco, se j· houver uma em aberta, "comita"
+	 * Abre uma transa√ß√£o com o banco, se j√° houver uma em aberta, "comita"
 	 */
 	public static function Begin()
 	{
@@ -176,7 +176,7 @@ class Connect
 	}
 	
 	/**
-	 * Retorna a transaÁ„o
+	 * Retorna a transa√ß√£o
 	 */
 	public static function Rollback()
 	{
@@ -185,7 +185,7 @@ class Connect
 	}
 	
 	/**
-	 * Quase a mesma coisa do fetch mas sÛ retorna 1, ONE saca? 
+	 * Quase a mesma coisa do fetch mas s√≥ retorna 1, ONE saca? 
 	 * @param string $sql
 	 * @param int $index indice que quer retornar 0 default
 	 * @return mysql row string|int

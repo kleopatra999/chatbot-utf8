@@ -1,4 +1,4 @@
-﻿<html lang="pt_BR">
+﻿<html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
 		<link rel="shortcut icon" href="favicon.ico" />
@@ -13,12 +13,12 @@
 				localUrl = localUrl.replace('web/', '');
 
 				// só um advinhador simples
-				var webServiceUrl 	= window.location.href.replace('web/', '');
+				var webServiceUrl 	= window.location.href.replace('web/', 'api.php');
 
-				$('.esquecer').click(function(){
+				$('.clean').click(function(){
 
 					Clear();
-					AddText('Sistema', 'Esquecendo...');
+					AddText('system ', 'cleaning...');
 					
 					$('.userMessage').hide();
 
@@ -29,7 +29,7 @@
 							  	requestType:'forget'
 						  	},
 						  success: function(response){
-							  AddText('Sistema', 'Ok!');
+							  AddText('system ', 'Ok!');
 							  $('.userMessage').show();
 						  },
 						  error: function(request, status, error)
@@ -45,7 +45,7 @@
 				$('#fMessage').submit(function(){
 					
 					// get user input
-					var userInput		= $('input[name="userInput"]').val();
+					var userInput = $('input[name="userInput"]').val();
 					
 					// basic check
 					if(userInput == '')
@@ -59,7 +59,7 @@
 					$(this).hide();
 					
 					// show user input
-					AddText('Você', userInput);
+					AddText('A ', userInput);
 					
 					$.ajax({
 					  type: "GET",
@@ -69,12 +69,13 @@
 						  	requestType:'talk'
 					  	},
 					  success: function(response){
-						  AddText('Cenouro', response.message);
+						  AddText('B ', response.message);
 						  $('#fMessage').show();
 						  $('input[name="userInput"]').focus();
 					  },
 					  error: function(request, status, error)
 					  {
+					  	  console.log(error);
 						  alert('error');
 						  $('#fMessage').show();
 					  }
@@ -114,16 +115,28 @@
 			});
 		</script>
 	</head>
-	<body>
-		<div class="chatBox">
-		
-		</div>
-		<label>
-		<div class="userMessage">
-			<form id="fMessage">
-				<input type="text" name="userInput"/><input type="submit" value="Enviar" class="send"/>
-			</form>
-			<button class="esquecer">Esquecer</button>
-		</div>
+	<body id="body">
+		<center>
+			<div id="box1">
+				<br>
+				<br>
+				<h2><a href="https://github.com/kompasim/chatbot-utf8">github</a></h2>
+				<br>
+				<br>
+				<div class="chatBox">
+					welcome , i am chatbot ...
+				</div>
+				<label>
+			</div>
+			<div id="box2" class="userMessage">
+				<form id="fMessage">
+					<input id="clean" type="button" class="clean" value="clean" />
+					<input type="text" name="userInput" id="userInput"/>
+					<input id="send" type="submit" value="send" class="send"/>
+				</form>
+			</div>
+		</center>
 	</body>
+
+
 </html>

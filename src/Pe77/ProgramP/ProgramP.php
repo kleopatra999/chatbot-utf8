@@ -33,17 +33,17 @@ class ProgramP
      */
     function GetResponse($user, $bot, $input)
     {
-    	
-		$response =  Parser::Parse($user, $bot, $input);
+        
+        $response =  Parser::Parse($user, $bot, $input);
 
         $data       = Parser::GetResponseData();
         if($data)
             $this->_data = $data;
         //
-		
-		$this->Log($user, $input, $response, $bot);
-		
-		return $response;
+        
+        $this->Log($user, $input, $response, $bot);
+        
+        return $response;
     }
 
 
@@ -71,7 +71,7 @@ class ProgramP
         return $this->_bots[$unique];
     }
     
-	/**
+    /**
      * Load user by unique key (name+IP exemple)
      * @param string $userUnique
      */
@@ -123,11 +123,11 @@ class ProgramP
         $response = mysql_real_escape_string(utf8_decode(trim($response)));
 
         // log conversation
-    	Connect::Query("
-    		INSERT INTO 
-    			`log` 
-    		(`user`, `input`, `response`, `bot`, `data`) 
-    			VALUES 
-    		('" . $user->GetUnique() . "', '" . $input . "', '" . trim($response) . "', '" . $bot->GetUnique() . "', NOW());");
+        Connect::Query("
+            INSERT INTO 
+                `log` 
+            (`user`, `input`, `response`, `bot`, `data`) 
+                VALUES 
+            ('" . $user->GetUnique() . "', '" . $input . "', '" . trim($response) . "', '" . $bot->GetUnique() . "', NOW());");
     }
 }

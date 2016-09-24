@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `data` (
   `unique` varchar(41) NOT NULL,
   `data` text NOT NULL,
   UNIQUE KEY `unique` (`unique`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `log` (
   `response` text NOT NULL,
   `bot` varchar(255) NOT NULL,
   `data` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -40,4 +40,4 @@ CREATE TABLE IF NOT EXISTS `prop` (
   `name` varchar(255) NOT NULL,
   `value` varchar(255) NOT NULL,
   KEY `unique` (`unique`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
