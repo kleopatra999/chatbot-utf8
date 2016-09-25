@@ -120,13 +120,16 @@
 			<div id="box1">
 				<br>
 				<br>
-				<h2><a href="https://github.com/kompasim/chatbot-utf8">github</a></h2>
+				<h2><a target="_blank" href="https://github.com/kompasim/chatbot-utf8">Chatbot</a></h2>
 				<br>
 				<br>
 				<div class="chatBox">
 					welcome , i am chatbot ...
 				</div>
-				<label>
+				<div>
+					<br>
+					<a target="_blank" href="api.php?requestType=talk&input=ياخشىمۇسىز">api</a>
+				</div>
 			</div>
 			<div id="box2" class="userMessage">
 				<form id="fMessage">

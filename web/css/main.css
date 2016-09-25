@@ -38,6 +38,7 @@ a:hover {
 
 
 .chatBox {
+	cursor: pointer;
 	display: inline-block;
 	background: rgba(55,55,55,0.5);
 	height: 50%;

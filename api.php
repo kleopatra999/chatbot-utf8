@@ -31,7 +31,10 @@ $user	  = $programP->GetUser($userId);
 // talk
 if($_REQUEST['requestType'] == 'talk')
 {
-	$bot->SetProp('nome', 'Cenouro');
+	$bot->SetProp('name', $config['botInfo']['name']);
+	$bot->SetProp('age', $config['botInfo']['age']);
+	$bot->SetProp('website', $config['botInfo']['website']);
+	$bot->SetProp('version', $config['botInfo']['version']);
 	$bot->Save();
 
 	// fixa o rand com base na perunta + uid
