@@ -8,8 +8,11 @@
 <include file="./demo/one.aiml"/>
 <include file="./demo/two.aiml"/>
 
-<!-- START LINE -->
-<!-- oi line -->
+
+
+<!-- the uyghur aiml file, you can delete it if don't need -->
+<include file="./AIML-Uyghur/AIML/AIML-Uyghur.aiml"/>
+
 
 <category>
     <pattern>hello</pattern>
@@ -17,6 +20,11 @@
         hello ...
     </template>
 </category>
+
+
+<default>
+    <srai>DEFAULT</srai>
+</default>
 
 <category>
     <pattern>DEFAULT</pattern>
@@ -27,5 +35,8 @@
     </template>
 </category>
 
+
+<!-- the uyghur aiml file, you can delete it if don't need -->
+<include file="./AIML-Uyghur/AIML/AIML-Uyghur.aiml"/>
 
 </aiml>
