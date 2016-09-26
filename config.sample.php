@@ -6,7 +6,7 @@ $config = array
 		"host" =>"localhost",
 		"user" =>"root",
 		"pass" =>"root",
-		"dbName" =>"chatbot-uy"
+		"dbName" =>"chatbot"
 	),
 
 	"aiml"=>array(
