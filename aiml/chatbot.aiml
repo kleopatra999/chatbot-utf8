@@ -4,9 +4,9 @@
 <meta name="author" content="kompasim"/>
 
 <!-- includes -->
-<include file="test.aiml"/>
-<include file="one.aiml"/>
-<include file="two.aiml"/>
+<include file="./demo/demo.aiml"/>
+<include file="./demo/one.aiml"/>
+<include file="./demo/two.aiml"/>
 
 <!-- START LINE -->
 <!-- oi line -->
@@ -17,11 +17,6 @@
         hello ...
     </template>
 </category>
-
-
-<default>
-    <srai>DEFAULT</srai>
-</default>
 
 <category>
     <pattern>DEFAULT</pattern>
