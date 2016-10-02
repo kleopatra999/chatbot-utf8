@@ -5,14 +5,11 @@
 
 <!-- includes -->
 <include file="./demo/demo.aiml"/>
-<include file="./demo/one.aiml"/>
-<include file="./demo/two.aiml"/>
 
 
 
 <!-- the uyghur aiml file, you can delete it if don't need -->
-<include file="./AIML-Uyghur/AIML/AIML-Uyghur.aiml"/>
-
+<include file="./AIML-Uyghur/AIML/meet.aiml"/>
 
 <category>
     <pattern>hello</pattern>
@@ -37,6 +34,5 @@
 
 
 <!-- the uyghur aiml file, you can delete it if don't need -->
-<include file="./AIML-Uyghur/AIML/AIML-Uyghur.aiml"/>
 
 </aiml>

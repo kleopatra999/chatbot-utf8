@@ -1015,9 +1015,9 @@ class Parser
 		$pattern = str_replace('* ', '(.+) ', $pattern);
 		$pattern = str_replace(' *', ' (.+)', $pattern);
 		$pattern = str_replace('*', '(.+)', $pattern);
-		$pattern = str_replace(' # ', ' (.*) ', $pattern);
-		$pattern = str_replace(' #', ' (.*)', $pattern);
-		$pattern = str_replace('# ', '(.*) ', $pattern);
+		$pattern = str_replace(' # ', '[ ]*(.*) ', $pattern);
+		$pattern = str_replace(' #', '[ ]*(.*)', $pattern);
+		$pattern = str_replace('# ', '(.*)[ ]*', $pattern);
 		$pattern = str_replace('#', '(.*)', $pattern);
 		
 		

@@ -33,6 +33,7 @@ if($_REQUEST['requestType'] == 'talk')
 {
 	$bot->SetProp('name', $config['botInfo']['name']);
 	$bot->SetProp('age', $config['botInfo']['age']);
+	$bot->SetProp('owner', $config['botInfo']['owner']);
 	$bot->SetProp('website', $config['botInfo']['website']);
 	$bot->SetProp('version', $config['botInfo']['version']);
 	$bot->Save();
