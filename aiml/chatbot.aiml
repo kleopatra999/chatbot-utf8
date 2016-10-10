@@ -27,7 +27,7 @@
     <pattern>DEFAULT</pattern>
     <template>
         <random>
-        <li>default message ...</li>
+        <li>كەچۈرۈڭ ، چۈشىنەلمىدىم  ...</li>
         </random>
     </template>
 </category>
