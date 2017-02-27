@@ -1,10 +1,14 @@
 #  基于AIML的PHP连天机器人
 
-## 1. 介绍
+## 0. 介绍
 
 > 该聊天机器人是基于AIML 2.5，对[Program-P](https://github.com/pe77/Program-P)做一些小的修改而成的，感兴趣的朋友可以自己再研究一下。
 
 > 该聊天机器人也适用于UTF-8编码的，单词后缀根据不用的时态而改变的那些语言。
+
+## 1. 下载安装
+
+> `git clone https://github.com/kompasim/chatbot-utf8.git`，下载之后完成下面那些步骤就可以直接上传到自己的服务器了。
 
 ## 2. 数据库的配置
 
@@ -40,5 +44,9 @@
 		$pattern = str_replace('# ', '(.*)[ ]*', $pattern);
 		$pattern = str_replace('#', '(.*)', $pattern);
 ```
+
+## 8. 项目github地址
+
+> [https://github.com/kompasim/chatbot-utf8](https://github.com/kompasim/chatbot-utf8)
 
 ![chatbot](/images/demo.png)
