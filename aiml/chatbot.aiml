@@ -7,14 +7,18 @@
 <include file="./demo/demo.aiml"/>
 
 
-
-<!-- the uyghur aiml file, you can delete it if don't need -->
-<include file="./AIML-Uyghur/AIML/meet.aiml"/>
-
 <category>
     <pattern>hello</pattern>
     <template>
         hello ...
+    </template>
+</category>
+
+
+<category>
+    <pattern>你好</pattern>
+    <template>
+        你好 ...
     </template>
 </category>
 
@@ -27,7 +31,7 @@
     <pattern>DEFAULT</pattern>
     <template>
         <random>
-        <li>كەچۈرۈڭ ، چۈشىنەلمىدىم  ...</li>
+        <li>我不太理解你在说什么  ...</li>
         </random>
     </template>
 </category>
